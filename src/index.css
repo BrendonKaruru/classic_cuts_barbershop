@@ -1,38 +1,32 @@
-/* index.css - Classic Cuts Barbershop Design System (Rich Luxury Glassmorphism & High-Contrast Palette) */
+/* index.css - Classic Cuts Barbershop (Rich Deep Black & Warm Gold Palette) */
 
 :root {
-  /* Rich, vibrant luxury color palette with high contrast for all ages */
-  --bg-dark: #120E0D; /* Deep obsidian espresso background */
-  --bg-espresso: #2C211E; /* Rich warm chocolate espresso */
-  --bg-card: rgba(38, 29, 26, 0.75); /* Rich Glassmorphism card fill */
-  --bg-card-hover: rgba(54, 41, 37, 0.9);
-  --bg-cream: #FFFDF9; /* Radiant warm white/cream */
+  /* Ultra-sleek Rich Deep Black & Warm Gold Accent System */
+  --bg-dark: #0A0A0A; /* Pure deep obsidian black */
+  --bg-card: #161616; /* Clean dark grey-black card background */
+  --bg-card-hover: #202020; /* Elevated card hover */
+  --bg-espresso: #1A1A1A;
   
-  /* Vibrant Metallic Gold & Warm Bronze Highlights */
-  --gold-primary: #E5A96A; /* Warm metallic gold with high contrast */
-  --gold-light: #F9DBBD;
-  --gold-hover: #F2BD84;
-  --gold-dark: #B87B3D;
-  --gold-glow: rgba(229, 169, 106, 0.4);
+  /* Warm Glowing Classic Gold Highlights */
+  --gold-primary: #D4AF37; /* Pure warm metallic classic gold */
+  --gold-light: #F3E5AB;
+  --gold-hover: #E5BE38;
+  --gold-dark: #997A15;
+  --gold-glow: rgba(212, 175, 55, 0.3);
   
-  --text-main: #FFFDF9;
-  --text-muted: #D8C7BF; /* High legibility contrast for all ages */
-  --text-dark: #120E0D;
+  --text-main: #FFFFFF; /* Crisp bright white for ultimate contrast & legibility */
+  --text-muted: #B0B0B0; /* High legibility silver-grey text */
+  --text-dark: #0A0A0A;
   
-  --border-gold: rgba(229, 169, 106, 0.4);
-  --border-muted: rgba(255, 253, 249, 0.15);
+  --border-gold: rgba(212, 175, 55, 0.35);
+  --border-muted: rgba(255, 255, 255, 0.12);
 
   --font-heading: 'Cinzel', serif;
   --font-body: 'Plus Jakarta Sans', sans-serif;
   
-  --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  --shadow-gold: 0 15px 40px rgba(229, 169, 106, 0.22);
-  --shadow-dark: 0 25px 60px rgba(0, 0, 0, 0.85);
-  
-  /* Glassmorphism token */
-  --glass-bg: rgba(30, 22, 20, 0.7);
-  --glass-border: 1px solid rgba(229, 169, 106, 0.35);
-  --glass-blur: blur(20px);
+  --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --shadow-gold: 0 12px 35px rgba(212, 175, 55, 0.25);
+  --shadow-dark: 0 25px 50px rgba(0, 0, 0, 0.9);
 }
 
 * {
@@ -43,7 +37,7 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: 16px; /* High legibility base */
+  font-size: 16px;
 }
 
 body {
@@ -72,7 +66,7 @@ button {
   font-family: inherit;
 }
 
-/* Custom High-Contrast Scrollbar */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -82,7 +76,7 @@ button {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--gold-dark);
+  background: #333333;
   border-radius: 4px;
 }
 
@@ -93,53 +87,43 @@ button {
 /* Utility classes */
 .gold-text {
   color: var(--gold-primary);
-  background: linear-gradient(135deg, #F9DBBD 0%, #E5A96A 50%, #B87B3D 100%);
+  background: linear-gradient(135deg, #F3E5AB 0%, #D4AF37 50%, #AA820A 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* Glassmorphic Panel Utility */
-.glass-panel {
-  background: var(--glass-bg);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border: var(--glass-border);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-}
-
 .btn-primary {
-  background: linear-gradient(135deg, #E5A96A 0%, #B87B3D 100%);
-  color: #120E0D;
+  background: linear-gradient(135deg, #D4AF37 0%, #AA820A 100%);
+  color: #0A0A0A;
   font-weight: 800;
-  padding: 1rem 2.4rem;
+  padding: 0.95rem 2.2rem;
   border-radius: 4px;
   text-transform: uppercase;
   letter-spacing: 2px;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   transition: var(--transition);
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  box-shadow: 0 6px 25px rgba(229, 169, 106, 0.35);
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.35);
 }
 
 .btn-primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 35px rgba(229, 169, 106, 0.55);
-  background: linear-gradient(135deg, #F9DBBD 0%, #E5A96A 100%);
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.55);
+  background: linear-gradient(135deg, #F3E5AB 0%, #D4AF37 100%);
 }
 
 .btn-secondary {
-  background: rgba(229, 169, 106, 0.08);
+  background: rgba(212, 175, 55, 0.08);
   color: var(--gold-primary);
   border: 1.5px solid var(--gold-primary);
-  backdrop-filter: blur(10px);
   font-weight: 700;
-  padding: 1rem 2.4rem;
+  padding: 0.95rem 2.2rem;
   border-radius: 4px;
   text-transform: uppercase;
   letter-spacing: 2px;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   transition: var(--transition);
   display: inline-flex;
   align-items: center;
@@ -147,11 +131,10 @@ button {
 }
 
 .btn-secondary:hover {
-  background: rgba(229, 169, 106, 0.2);
+  background: rgba(212, 175, 55, 0.2);
   color: var(--gold-light);
   border-color: var(--gold-light);
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(229, 169, 106, 0.25);
 }
 
 /* Animations */
@@ -161,5 +144,5 @@ button {
 }
 
 .fade-in {
-  animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fadeIn 0.5s ease-out forwards;
 }

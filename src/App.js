@@ -281,26 +281,7 @@ function App() {
               </div>
             </section>
 
-            {/* Human Features Strip */}
-            <section className="section" style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
-              <div className="features-strip">
-                <div className="feature-box">
-                  <i className="fa-solid fa-user-check feature-icon"></i>
-                  <h4 style={{ color: 'var(--text-main)', marginBottom: '4px' }}>Lead Barber Lanko</h4>
-                  <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>14+ Years Master Experience</p>
-                </div>
-                <div className="feature-box">
-                  <i className="fa-solid fa-mug-hot feature-icon"></i>
-                  <h4 style={{ color: 'var(--text-main)', marginBottom: '4px' }}>Lounge Hospitality</h4>
-                  <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>Complimentary Drinks & Wi-Fi</p>
-                </div>
-                <div className="feature-box">
-                  <i className="fa-solid fa-location-dot feature-icon"></i>
-                  <h4 style={{ color: 'var(--text-main)', marginBottom: '4px' }}>Westgate Shop 213</h4>
-                  <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>Convenient Safe Parking</p>
-                </div>
-              </div>
-            </section>
+
 
             {/* Barber Team Highlight */}
             <section className="section">
