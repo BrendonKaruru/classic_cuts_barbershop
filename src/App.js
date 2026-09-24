@@ -310,40 +310,42 @@ function App() {
               </div>
             </section>
 
-            {/* Featured Services Preview */}
-            <section className="section" style={{ background: '#171211' }}>
-              <div className="section-header">
-                <span className="section-subtitle">Grooming Packages</span>
-                <h2 className="section-title">Featured Services (From $15+)</h2>
-              </div>
-              <div className="services-grid">
-                {SERVICES.slice(0, 3).map(service => (
-                  <div key={service.id} className="service-card">
-                    <div>
-                      <div className="service-header">
-                        <h3 className="service-name">{service.name}</h3>
-                        <span className="service-price">${service.price}</span>
+            {/* Featured Services Preview with Barbershop Interior Image Background */}
+            <div className="bg-section-12">
+              <section className="section">
+                <div className="section-header">
+                  <span className="section-subtitle">Grooming Packages</span>
+                  <h2 className="section-title">Featured Services (From $15+)</h2>
+                </div>
+                <div className="services-grid">
+                  {SERVICES.slice(0, 3).map(service => (
+                    <div key={service.id} className="service-card">
+                      <div>
+                        <div className="service-header">
+                          <h3 className="service-name">{service.name}</h3>
+                          <span className="service-price">${service.price}</span>
+                        </div>
+                        <p className="service-desc">{service.desc}</p>
                       </div>
-                      <p className="service-desc">{service.desc}</p>
-                    </div>
-                    <div>
-                      <div className="service-meta">
-                        <span><i className="fa-regular fa-clock"></i> {service.duration}</span>
-                        <span><i className="fa-solid fa-circle-check gold-text"></i> Hot Towel Included</span>
+                      <div>
+                        <div className="service-meta">
+                          <span><i className="fa-regular fa-clock"></i> {service.duration}</span>
+                          <span><i className="fa-solid fa-circle-check gold-text"></i> Hot Towel Included</span>
+                        </div>
+                        <button className="btn-primary" style={{ width: '100%', marginTop: '1.2rem' }} onClick={() => navigateToBookingWithService(service.id)}>
+                          Book This Cut
+                        </button>
                       </div>
-                      <button className="btn-primary" style={{ width: '100%', marginTop: '1.2rem' }} onClick={() => navigateToBookingWithService(service.id)}>
-                        Book This Cut
-                      </button>
                     </div>
-                  </div>
-                ))}
-              </div>
-              <div style={{ textAlign: 'center', marginTop: '3rem' }}>
-                <button className="btn-secondary" onClick={() => { setCurrentPage('services'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
-                  View Full Menu & Rates <i className="fa-solid fa-arrow-right"></i>
-                </button>
-              </div>
-            </section>
+                  ))}
+                </div>
+                <div style={{ textAlign: 'center', marginTop: '3rem' }}>
+                  <button className="btn-secondary" onClick={() => { setCurrentPage('services'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
+                    View Full Menu & Rates <i className="fa-solid fa-arrow-right"></i>
+                  </button>
+                </div>
+              </section>
+            </div>
 
             {/* Haircut Portfolio Gallery */}
             <section className="section">
@@ -363,28 +365,31 @@ function App() {
               </div>
             </section>
 
-            {/* Genuine Client Reviews Section */}
-            <section className="section" style={{ background: '#171211' }}>
-              <div className="section-header">
-                <span className="section-subtitle">Client Stories</span>
-                <h2 className="section-title">What Our Clients Say</h2>
-              </div>
+            {/* Genuine Client Reviews Section with Shop Image Background */}
+            <div className="bg-section-21">
+              <section className="section">
+                <div className="section-header">
+                  <span className="section-subtitle">Client Stories</span>
+                  <h2 className="section-title">What Our Clients Say</h2>
+                </div>
 
-              <div className="reviews-grid">
-                {REVIEWS.map((rev, idx) => (
-                  <div key={idx} className="review-card">
-                    <div className="stars">
-                      {[...Array(rev.stars)].map((_, i) => (
-                        <i key={i} className="fa-solid fa-star" style={{ marginRight: '3px' }}></i>
-                      ))}
+                <div className="reviews-grid">
+                  {REVIEWS.map((rev, idx) => (
+                    <div key={idx} className="review-card">
+                      <div className="stars">
+                        {[...Array(rev.stars)].map((_, i) => (
+                          <i key={i} className="fa-solid fa-star" style={{ marginRight: '3px' }}></i>
+                        ))}
+                      </div>
+                      <p className="review-text">"{rev.text}"</p>
+                      <div className="reviewer-name">{rev.name}</div>
+                      <div className="reviewer-meta">{rev.role}</div>
                     </div>
-                    <p className="review-text">"{rev.text}"</p>
-                    <div className="reviewer-name">{rev.name}</div>
-                    <div className="reviewer-meta">{rev.role}</div>
-                  </div>
-                ))}
-              </div>
-            </section>
+                  ))}
+                </div>
+              </section>
+            </div>
+
 
             {/* Interactive FAQ Section */}
             <section className="section">
@@ -407,6 +412,37 @@ function App() {
                     )}
                   </div>
                 ))}
+              </div>
+            </section>
+
+            {/* Shop Location Map Section */}
+            <section className="section">
+              <div className="section-header">
+                <span className="section-subtitle">Visit Us</span>
+                <h2 className="section-title">Shop Location & Map</h2>
+              </div>
+
+              <div className="map-card">
+                <iframe 
+                  className="map-frame"
+                  title="Classic Cuts Westgate Location Map"
+                  src="https://maps.google.com/maps?q=Westgate%20Shopping%20Center%20Harare%20Zimbabwe&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                  loading="lazy"
+                  allowFullScreen
+                ></iframe>
+                <div className="map-details-strip">
+                  <div>
+                    <h4 style={{ color: 'var(--gold-primary)', fontSize: '1.05rem', marginBottom: '4px' }}>
+                      <i className="fa-solid fa-location-dot"></i> Classic Cuts Barbershop
+                    </h4>
+                    <p style={{ color: '#D0D0D0', fontSize: '0.9rem' }}>
+                      Westgate Shopping Center, Shop Number 213, Harare, Zimbabwe
+                    </p>
+                  </div>
+                  <button className="btn-primary" onClick={() => { setCurrentPage('booking'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
+                    <i className="fa-solid fa-calendar-alt"></i> Book Visit
+                  </button>
+                </div>
               </div>
             </section>
           </div>
