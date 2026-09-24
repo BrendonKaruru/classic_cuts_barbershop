@@ -1,4 +1,4 @@
-/* App.css - Luxury Vintage Minimalist Styling for Classic Cuts Barbershop */
+/* App.css - Unbreakable Mobile & Multi-Screen Responsive Layout for Classic Cuts Barbershop */
 
 .app-container {
   min-height: 100vh;
@@ -6,17 +6,75 @@
   flex-direction: column;
 }
 
-/* Header Navigation Bar */
+/* Top Announcement Bar */
+.top-bar {
+  background: #181210;
+  border-bottom: 1px solid rgba(229, 169, 106, 0.35);
+  padding: 6px 1.5rem;
+  font-size: 0.8rem;
+  color: #FFFDF9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1002;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.top-bar-info {
+  display: flex;
+  gap: 15px;
+  font-weight: 600;
+  flex-wrap: wrap;
+}
+
+.top-bar-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(46, 204, 113, 0.2);
+  color: #2ecc71;
+  border: 1px solid rgba(46, 204, 113, 0.5);
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.pulse-dot {
+  width: 6px;
+  height: 6px;
+  background-color: #2ecc71;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #2ecc71;
+  animation: pulse 1.8s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(46, 204, 113, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); }
+}
+
+/* Navbar */
 .navbar {
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
-  padding: 1.2rem 4rem;
-  background: rgba(31, 25, 23, 0.92);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border-gold);
+  padding: 0.75rem 2rem;
+  background: #140F0E;
+  border-bottom: 2px solid var(--gold-primary);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -26,53 +84,65 @@
 .navbar-brand {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
   text-decoration: none;
+  min-width: 0; /* Prevents overflow */
 }
 
 .brand-logo-img {
-  width: 52px;
-  height: 52px;
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
   border-radius: 50%;
   border: 2px solid var(--gold-primary);
   object-fit: cover;
-  box-shadow: 0 0 15px rgba(220, 164, 125, 0.3);
+}
+
+.brand-text-container {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .brand-title {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 800;
-  color: var(--text-cream);
+  color: #FFFDF9;
   line-height: 1.1;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .brand-sub {
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   color: var(--gold-primary);
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   display: block;
-  font-weight: 600;
+  font-weight: 800;
+  white-space: nowrap;
 }
 
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: 2.5rem;
+  gap: 1.8rem;
   list-style: none;
 }
 
 .nav-link {
-  font-size: 0.85rem;
-  font-weight: 600;
+  font-size: 0.82rem;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  color: var(--text-muted);
+  letter-spacing: 1.5px;
+  color: #FFFDF9;
   transition: var(--transition);
   position: relative;
   padding: 6px 0;
   background: transparent;
+  white-space: nowrap;
 }
 
 .nav-link:hover, .nav-link.active {
@@ -87,6 +157,7 @@
   width: 100%;
   height: 2px;
   background: var(--gold-primary);
+  box-shadow: 0 0 8px var(--gold-primary);
 }
 
 .mobile-toggle {
@@ -94,108 +165,215 @@
   background: transparent;
   color: var(--gold-primary);
   font-size: 1.6rem;
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: 1px solid rgba(229, 169, 106, 0.3);
 }
 
-/* Minimalist Hero Section */
+/* Hero Section */
 .hero-section {
   position: relative;
-  min-height: 92vh;
+  min-height: 85vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 9rem 2rem 5rem 2rem;
-  background: linear-gradient(to bottom, rgba(31, 25, 23, 0.65), rgba(31, 25, 23, 0.95)),
+  padding: 5.5rem 1.25rem 3.5rem 1.25rem;
+  background: linear-gradient(to bottom, rgba(18, 14, 13, 0.7), rgba(18, 14, 13, 0.95)),
               url('../public/Images/barbershop/31.jpg') center/cover no-repeat;
 }
 
 .hero-content {
-  max-width: 900px;
+  max-width: 860px;
+  width: 100%;
   z-index: 2;
 }
 
 .hero-badge {
   display: inline-block;
-  padding: 8px 22px;
-  background: rgba(220, 164, 125, 0.12);
-  border: 1px solid var(--border-gold);
-  border-radius: 40px;
-  color: var(--gold-primary);
+  padding: 6px 16px;
+  background: rgba(229, 169, 106, 0.2);
+  border: 1.5px solid var(--gold-primary);
+  border-radius: 30px;
+  color: var(--gold-light);
   font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 3px;
+  font-weight: 800;
+  letter-spacing: 2px;
   text-transform: uppercase;
-  margin-bottom: 2rem;
+  margin-bottom: 1.2rem;
 }
 
 .hero-title {
-  font-size: 4rem;
+  font-size: 3.4rem;
   font-weight: 900;
-  color: var(--text-cream);
-  line-height: 1.1;
-  margin-bottom: 1.5rem;
+  color: #FFFDF9;
+  line-height: 1.15;
+  margin-bottom: 1.2rem;
   text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .hero-subtitle {
-  font-size: 1.15rem;
-  color: var(--text-muted);
-  margin-bottom: 3rem;
-  font-weight: 300;
-  max-width: 700px;
+  font-size: 1.08rem;
+  color: #E2D5CF;
+  margin-bottom: 2rem;
+  font-weight: 500;
+  max-width: 680px;
   margin-left: auto;
   margin-right: auto;
-  line-height: 1.8;
+  line-height: 1.65;
 }
 
 .hero-cta-group {
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-/* Page Section Wrappers */
+/* Features Grid */
+.features-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin: 2.5rem 0;
+}
+
+.feature-box {
+  background: #231B19;
+  border: 1px solid var(--border-gold);
+  padding: 1.5rem;
+  border-radius: 6px;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.feature-icon {
+  font-size: 1.8rem;
+  color: var(--gold-primary);
+  margin-bottom: 0.6rem;
+}
+
+/* Reviews Grid */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.8rem;
+}
+
+.review-card {
+  background: #231B19;
+  border: 1px solid var(--border-gold);
+  border-radius: 6px;
+  padding: 1.8rem;
+  position: relative;
+}
+
+.stars {
+  color: var(--gold-primary);
+  margin-bottom: 0.8rem;
+}
+
+.review-text {
+  font-style: italic;
+  color: #E2D5CF;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+}
+
+.reviewer-name {
+  font-weight: 800;
+  color: #FFFDF9;
+  font-size: 0.98rem;
+}
+
+.reviewer-meta {
+  font-size: 0.8rem;
+  color: var(--gold-primary);
+  font-weight: 700;
+}
+
+/* FAQ Accordion Section */
+.faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.faq-item {
+  background: #231B19;
+  border: 1px solid var(--border-gold);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.faq-question {
+  width: 100%;
+  padding: 1.2rem 1.5rem;
+  background: transparent;
+  color: #FFFDF9;
+  text-align: left;
+  font-weight: 800;
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: var(--transition);
+}
+
+.faq-answer {
+  padding: 0 1.5rem 1.2rem 1.5rem;
+  color: #E2D5CF;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  border-top: 1px dashed var(--border-muted);
+  padding-top: 1rem;
+}
+
+/* Section Wrapper */
 .section {
-  padding: 6rem 2rem;
-  max-width: 1240px;
+  padding: 4.5rem 1.25rem;
+  max-width: 1200px;
   margin: 0 auto;
   width: 100%;
 }
 
 .section-header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
 }
 
 .section-title {
-  font-size: 2.6rem;
+  font-size: 2.2rem;
   font-weight: 800;
   text-transform: uppercase;
-  margin-bottom: 0.6rem;
-  letter-spacing: 2px;
+  margin-bottom: 0.4rem;
+  letter-spacing: 1.5px;
 }
 
 .section-subtitle {
   color: var(--gold-primary);
-  font-size: 0.85rem;
-  letter-spacing: 4px;
+  font-size: 0.82rem;
+  letter-spacing: 2.5px;
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 /* Service Cards */
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 2.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.8rem;
 }
 
 .service-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-muted);
-  border-radius: 4px;
-  padding: 2.5rem;
+  background: #231B19;
+  border: 1.5px solid var(--border-gold);
+  border-radius: 6px;
+  padding: 1.8rem;
   transition: var(--transition);
   position: relative;
   display: flex;
@@ -203,74 +381,63 @@
   justify-content: space-between;
 }
 
-.service-card:hover {
-  border-color: var(--gold-primary);
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-gold);
-  background: var(--bg-card-hover);
-}
-
 .service-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
+  gap: 10px;
 }
 
 .service-name {
-  font-size: 1.35rem;
-  color: var(--text-cream);
-  font-weight: 700;
+  font-size: 1.2rem;
+  color: #FFFDF9;
+  font-weight: 800;
 }
 
 .service-price {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-family: var(--font-heading);
   font-weight: 800;
   color: var(--gold-primary);
+  white-space: nowrap;
 }
 
 .service-desc {
-  color: var(--text-muted);
-  font-size: 0.95rem;
-  margin-bottom: 1.8rem;
-  line-height: 1.7;
+  color: #E2D5CF;
+  font-size: 0.92rem;
+  margin-bottom: 1.2rem;
+  line-height: 1.6;
 }
 
 .service-meta {
   display: flex;
   align-items: center;
-  gap: 15px;
-  color: var(--text-muted);
+  gap: 12px;
+  color: #E2D5CF;
   font-size: 0.85rem;
   border-top: 1px solid var(--border-muted);
-  padding-top: 1.2rem;
+  padding-top: 0.8rem;
 }
 
-/* Barbers Showcase Section */
+/* Barber Cards */
 .barbers-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.8rem;
 }
 
 .barber-card {
-  background: var(--bg-card);
-  border-radius: 4px;
+  background: #231B19;
+  border-radius: 6px;
   overflow: hidden;
-  border: 1px solid var(--border-muted);
+  border: 1.5px solid var(--border-gold);
   transition: var(--transition);
-}
-
-.barber-card:hover {
-  border-color: var(--gold-primary);
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-gold);
 }
 
 .barber-img-wrapper {
   width: 100%;
-  height: 380px;
+  height: 330px;
   overflow: hidden;
   position: relative;
 }
@@ -280,65 +447,60 @@
   height: 100%;
   object-fit: cover;
   object-position: top center;
-  transition: var(--transition);
-}
-
-.barber-card:hover .barber-img {
-  transform: scale(1.06);
 }
 
 .barber-badge-lead {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: var(--gold-primary);
-  color: #1F1917;
+  top: 0.8rem;
+  right: 0.8rem;
+  background: linear-gradient(135deg, #E5A96A 0%, #B87B3D 100%);
+  color: #120E0D;
   font-size: 0.7rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  padding: 4px 12px;
-  border-radius: 2px;
+  padding: 4px 10px;
+  border-radius: 3px;
 }
 
 .barber-info {
-  padding: 2rem;
+  padding: 1.5rem;
   text-align: center;
 }
 
 .barber-name {
-  font-size: 1.4rem;
-  margin-bottom: 0.3rem;
-  color: var(--text-cream);
+  font-size: 1.3rem;
+  margin-bottom: 0.2rem;
+  color: #FFFDF9;
 }
 
 .barber-role {
   color: var(--gold-primary);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 1rem;
-  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin-bottom: 0.6rem;
+  font-weight: 800;
 }
 
 .barber-bio {
-  color: var(--text-muted);
-  font-size: 0.9rem;
-  line-height: 1.7;
+  color: #E2D5CF;
+  font-size: 0.88rem;
+  line-height: 1.6;
 }
 
-/* Haircut Gallery Section */
+/* Gallery Grid */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.2rem;
 }
 
 .gallery-item {
-  height: 320px;
-  border-radius: 4px;
+  height: 280px;
+  border-radius: 6px;
   overflow: hidden;
-  border: 1px solid var(--border-muted);
+  border: 1px solid var(--border-gold);
   position: relative;
 }
 
@@ -346,21 +508,16 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: var(--transition);
-}
-
-.gallery-item:hover .gallery-img {
-  transform: scale(1.08);
 }
 
 .gallery-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(31, 25, 23, 0.9), transparent);
+  background: linear-gradient(to top, rgba(18, 14, 13, 0.9), transparent);
   opacity: 0;
   display: flex;
   align-items: flex-end;
-  padding: 1.5rem;
+  padding: 1.2rem;
   transition: var(--transition);
 }
 
@@ -368,51 +525,44 @@
   opacity: 1;
 }
 
-/* Booking Experience Form */
+/* Booking Card Form */
 .booking-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-gold);
-  border-radius: 6px;
-  padding: 3rem;
+  background: #231B19;
+  border: 1.5px solid var(--gold-primary);
+  border-radius: 8px;
+  padding: 2.2rem 1.5rem;
   box-shadow: var(--shadow-dark);
 }
 
 .form-group {
-  margin-bottom: 1.8rem;
+  margin-bottom: 1.2rem;
 }
 
 .form-label {
   display: block;
   font-size: 0.8rem;
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
   color: var(--gold-primary);
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.4rem;
 }
 
 .form-control, .form-select {
   width: 100%;
-  padding: 1rem 1.2rem;
-  background: #181312;
-  border: 1px solid var(--border-muted);
+  padding: 0.85rem 1rem;
+  background: #140F0E;
+  border: 1px solid var(--border-gold);
   border-radius: 4px;
-  color: var(--text-cream);
+  color: #FFFDF9;
   font-family: inherit;
   font-size: 0.95rem;
-  transition: var(--transition);
-}
-
-.form-control:focus, .form-select:focus {
-  border-color: var(--gold-primary);
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(220, 164, 125, 0.25);
 }
 
 .grid-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.8rem;
+  gap: 1.2rem;
 }
 
 /* Modal / Popup */
@@ -422,112 +572,61 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(15, 12, 11, 0.88);
+  background: rgba(10, 8, 7, 0.88);
   backdrop-filter: blur(12px);
   z-index: 2000;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem;
+  padding: 1rem;
+  overflow-y: auto;
 }
 
 .modal-card {
-  background: var(--bg-card);
+  background: #231B19;
   border: 1.5px solid var(--gold-primary);
-  border-radius: 6px;
+  border-radius: 10px;
   width: 100%;
-  max-width: 560px;
-  padding: 3rem;
+  max-width: 500px;
+  padding: 2rem 1.5rem;
   position: relative;
   box-shadow: var(--shadow-dark);
-  animation: fadeIn 0.4s ease-out;
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
 .modal-close {
   position: absolute;
-  top: 1.2rem;
-  right: 1.5rem;
+  top: 0.8rem;
+  right: 1rem;
   background: transparent;
-  color: var(--text-muted);
-  font-size: 1.6rem;
-  transition: var(--transition);
-}
-
-.modal-close:hover {
-  color: var(--gold-primary);
-}
-
-/* Calendar buttons */
-.success-box {
-  text-align: center;
-}
-
-.success-icon {
-  font-size: 3.5rem;
-  color: var(--gold-primary);
-  margin-bottom: 1.2rem;
-}
-
-.calendar-actions {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-top: 1.8rem;
-}
-
-.btn-cal {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  padding: 1rem;
-  border-radius: 4px;
-  font-weight: 700;
-  font-size: 0.85rem;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  transition: var(--transition);
-}
-
-.btn-gcal {
-  background: #4285F4;
-  color: #ffffff;
-}
-
-.btn-ical {
-  background: var(--bg-espresso);
-  color: var(--text-cream);
-  border: 1px solid var(--border-gold);
-}
-
-.btn-cal:hover {
-  opacity: 0.92;
-  transform: translateY(-2px);
+  color: #FFFDF9;
+  font-size: 1.5rem;
 }
 
 /* Footer Section */
 .footer {
-  background: #15100E;
+  background: #0E0B0A;
   border-top: 1px solid var(--border-gold);
-  padding: 5rem 2rem 2rem 2rem;
+  padding: 3.5rem 1.25rem 1.5rem 1.25rem;
   margin-top: auto;
 }
 
 .footer-grid {
-  max-width: 1240px;
+  max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 3.5rem;
-  margin-bottom: 4rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2.5rem;
+  margin-bottom: 2.5rem;
 }
 
 .footer-col h4 {
   color: var(--gold-primary);
-  margin-bottom: 1.5rem;
-  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
 }
 
 .footer-links {
@@ -535,89 +634,140 @@
 }
 
 .footer-links li {
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.5rem;
 }
 
 .footer-links a {
-  color: var(--text-muted);
-  transition: var(--transition);
-}
-
-.footer-links a:hover {
-  color: var(--gold-primary);
+  color: #E2D5CF;
+  font-size: 0.88rem;
 }
 
 .social-icons {
   display: flex;
-  gap: 1.2rem;
-  margin-top: 1.5rem;
+  gap: 0.8rem;
+  margin-top: 1rem;
 }
 
 .social-icon {
-  width: 42px;
-  height: 42px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   border: 1px solid var(--border-gold);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--gold-primary);
-  transition: var(--transition);
-}
-
-.social-icon:hover {
-  background: var(--gold-primary);
-  color: var(--text-dark);
-  transform: translateY(-3px);
 }
 
 .footer-bottom {
-  max-width: 1240px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding-top: 2rem;
+  padding-top: 1.5rem;
   border-top: 1px solid var(--border-muted);
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 1rem;
-  color: var(--text-muted);
-  font-size: 0.85rem;
+  gap: 0.8rem;
+  color: #E2D5CF;
+  font-size: 0.82rem;
 }
 
-/* Responsive Queries */
-@media (max-width: 900px) {
-  .hero-title {
-    font-size: 2.8rem;
+/* 📱 Complete Responsive Breakpoints for Tablet & Mobile (<= 1024px and <= 768px) */
+@media (max-width: 1024px) {
+  .nav-menu {
+    gap: 1.2rem;
+  }
+  .nav-link {
+    font-size: 0.78rem;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 850px) {
+  .top-bar {
+    justify-content: center;
+    text-align: center;
+  }
   .navbar {
-    padding: 1rem 1.5rem;
+    padding: 0.75rem 1.2rem;
+  }
+  .mobile-toggle {
+    display: block; /* Hamburger icon displays */
   }
   .nav-menu {
     position: fixed;
-    top: 75px;
+    top: 58px;
     left: 0;
     width: 100%;
-    background: var(--bg-dark);
+    background: #140F0E;
     flex-direction: column;
-    padding: 2.5rem;
-    gap: 1.8rem;
-    border-bottom: 1px solid var(--border-gold);
-    display: none;
+    padding: 2rem 1.5rem;
+    gap: 1.4rem;
+    border-bottom: 2px solid var(--gold-primary);
+    display: none; /* Hidden until toggled */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.95);
+    z-index: 1005;
   }
   .nav-menu.open {
     display: flex;
   }
-  .mobile-toggle {
-    display: block;
+  .nav-link {
+    font-size: 0.95rem;
+    width: 100%;
+    text-align: center;
+    padding: 8px 0;
+  }
+  .hero-section {
+    padding: 5rem 1rem 3rem 1rem;
+    min-height: 80vh;
   }
   .hero-title {
     font-size: 2.2rem;
+    line-height: 1.2;
+  }
+  .hero-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 1.8rem;
+  }
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+  }
+  .btn-primary, .btn-secondary {
+    width: 100%;
+    justify-content: center;
+    padding: 0.9rem 1.5rem;
+    font-size: 0.82rem;
+  }
+  .section {
+    padding: 3.5rem 1rem;
+  }
+  .section-title {
+    font-size: 1.8rem;
   }
   .grid-2 {
     grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+  .barbers-grid {
+    grid-template-columns: 1fr;
+  }
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+  }
+  .gallery-item {
+    height: 200px;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
   }
 }

@@ -1,32 +1,38 @@
-/* index.css - Classic Cuts Barbershop Design System (Luxury Minimalist Palette) */
+/* index.css - Classic Cuts Barbershop Design System (Rich Luxury Glassmorphism & High-Contrast Palette) */
 
 :root {
-  /* Exact luxury vintage color palette requested */
-  --bg-dark: #1F1917; /* Extra deep warm espresso for high-end contrast */
-  --bg-espresso: #3A2E2B; /* Primary Espresso Brown */
-  --bg-card: #2B2220; /* Luxury card background */
-  --bg-card-hover: #332825;
-  --bg-cream: #FBF3EF; /* Soft Cream Background for light sections/modal */
-  --text-cream: #FBF3EF;
-  --text-dark: #231B19;
+  /* Rich, vibrant luxury color palette with high contrast for all ages */
+  --bg-dark: #120E0D; /* Deep obsidian espresso background */
+  --bg-espresso: #2C211E; /* Rich warm chocolate espresso */
+  --bg-card: rgba(38, 29, 26, 0.75); /* Rich Glassmorphism card fill */
+  --bg-card-hover: rgba(54, 41, 37, 0.9);
+  --bg-cream: #FFFDF9; /* Radiant warm white/cream */
   
-  --gold-primary: #DCA47D; /* Metallic Rose-Gold Highlight */
-  --gold-light: #F4D3BC;
-  --gold-hover: #E8B38E;
-  --gold-dark: #B57F5A;
+  /* Vibrant Metallic Gold & Warm Bronze Highlights */
+  --gold-primary: #E5A96A; /* Warm metallic gold with high contrast */
+  --gold-light: #F9DBBD;
+  --gold-hover: #F2BD84;
+  --gold-dark: #B87B3D;
+  --gold-glow: rgba(229, 169, 106, 0.4);
   
-  --text-main: #FBF3EF;
-  --text-muted: #C8B9B3;
+  --text-main: #FFFDF9;
+  --text-muted: #D8C7BF; /* High legibility contrast for all ages */
+  --text-dark: #120E0D;
   
-  --border-gold: rgba(220, 164, 125, 0.3);
-  --border-muted: rgba(251, 243, 239, 0.12);
+  --border-gold: rgba(229, 169, 106, 0.4);
+  --border-muted: rgba(255, 253, 249, 0.15);
 
   --font-heading: 'Cinzel', serif;
   --font-body: 'Plus Jakarta Sans', sans-serif;
   
   --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  --shadow-gold: 0 12px 35px rgba(220, 164, 125, 0.18);
-  --shadow-dark: 0 20px 45px rgba(0, 0, 0, 0.6);
+  --shadow-gold: 0 15px 40px rgba(229, 169, 106, 0.22);
+  --shadow-dark: 0 25px 60px rgba(0, 0, 0, 0.85);
+  
+  /* Glassmorphism token */
+  --glass-bg: rgba(30, 22, 20, 0.7);
+  --glass-border: 1px solid rgba(229, 169, 106, 0.35);
+  --glass-blur: blur(20px);
 }
 
 * {
@@ -37,6 +43,7 @@
 
 html {
   scroll-behavior: smooth;
+  font-size: 16px; /* High legibility base */
 }
 
 body {
@@ -65,9 +72,9 @@ button {
   font-family: inherit;
 }
 
-/* Custom Minimalist Scrollbar */
+/* Custom High-Contrast Scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -75,8 +82,8 @@ button {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--bg-espresso);
-  border-radius: 3px;
+  background: var(--gold-dark);
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -86,43 +93,53 @@ button {
 /* Utility classes */
 .gold-text {
   color: var(--gold-primary);
-  background: linear-gradient(135deg, #F4D3BC 0%, #DCA47D 50%, #B57F5A 100%);
+  background: linear-gradient(135deg, #F9DBBD 0%, #E5A96A 50%, #B87B3D 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
+/* Glassmorphic Panel Utility */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: var(--glass-border);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
 .btn-primary {
-  background: linear-gradient(135deg, #DCA47D 0%, #B57F5A 100%);
-  color: #1F1917;
-  font-weight: 700;
-  padding: 0.95rem 2.2rem;
-  border-radius: 2px;
+  background: linear-gradient(135deg, #E5A96A 0%, #B87B3D 100%);
+  color: #120E0D;
+  font-weight: 800;
+  padding: 1rem 2.4rem;
+  border-radius: 4px;
   text-transform: uppercase;
   letter-spacing: 2px;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   transition: var(--transition);
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  box-shadow: 0 4px 20px rgba(220, 164, 125, 0.25);
+  box-shadow: 0 6px 25px rgba(229, 169, 106, 0.35);
 }
 
 .btn-primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(220, 164, 125, 0.45);
-  background: linear-gradient(135deg, #F4D3BC 0%, #DCA47D 100%);
+  box-shadow: 0 12px 35px rgba(229, 169, 106, 0.55);
+  background: linear-gradient(135deg, #F9DBBD 0%, #E5A96A 100%);
 }
 
 .btn-secondary {
-  background: transparent;
+  background: rgba(229, 169, 106, 0.08);
   color: var(--gold-primary);
-  border: 1px solid var(--gold-primary);
-  font-weight: 600;
-  padding: 0.95rem 2.2rem;
-  border-radius: 2px;
+  border: 1.5px solid var(--gold-primary);
+  backdrop-filter: blur(10px);
+  font-weight: 700;
+  padding: 1rem 2.4rem;
+  border-radius: 4px;
   text-transform: uppercase;
   letter-spacing: 2px;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   transition: var(--transition);
   display: inline-flex;
   align-items: center;
@@ -130,10 +147,11 @@ button {
 }
 
 .btn-secondary:hover {
-  background: rgba(220, 164, 125, 0.12);
+  background: rgba(229, 169, 106, 0.2);
   color: var(--gold-light);
   border-color: var(--gold-light);
   transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(229, 169, 106, 0.25);
 }
 
 /* Animations */
