@@ -1,0 +1,147 @@
+/* index.css - Classic Cuts Barbershop Design System (Luxury Minimalist Palette) */
+
+:root {
+  /* Exact luxury vintage color palette requested */
+  --bg-dark: #1F1917; /* Extra deep warm espresso for high-end contrast */
+  --bg-espresso: #3A2E2B; /* Primary Espresso Brown */
+  --bg-card: #2B2220; /* Luxury card background */
+  --bg-card-hover: #332825;
+  --bg-cream: #FBF3EF; /* Soft Cream Background for light sections/modal */
+  --text-cream: #FBF3EF;
+  --text-dark: #231B19;
+  
+  --gold-primary: #DCA47D; /* Metallic Rose-Gold Highlight */
+  --gold-light: #F4D3BC;
+  --gold-hover: #E8B38E;
+  --gold-dark: #B57F5A;
+  
+  --text-main: #FBF3EF;
+  --text-muted: #C8B9B3;
+  
+  --border-gold: rgba(220, 164, 125, 0.3);
+  --border-muted: rgba(251, 243, 239, 0.12);
+
+  --font-heading: 'Cinzel', serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  
+  --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --shadow-gold: 0 12px 35px rgba(220, 164, 125, 0.18);
+  --shadow-dark: 0 20px 45px rgba(0, 0, 0, 0.6);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6, .brand-font {
+  font-family: var(--font-heading);
+  letter-spacing: 1.5px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-family: inherit;
+}
+
+/* Custom Minimalist Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-espresso);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-primary);
+}
+
+/* Utility classes */
+.gold-text {
+  color: var(--gold-primary);
+  background: linear-gradient(135deg, #F4D3BC 0%, #DCA47D 50%, #B57F5A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #DCA47D 0%, #B57F5A 100%);
+  color: #1F1917;
+  font-weight: 700;
+  padding: 0.95rem 2.2rem;
+  border-radius: 2px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.8rem;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 20px rgba(220, 164, 125, 0.25);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(220, 164, 125, 0.45);
+  background: linear-gradient(135deg, #F4D3BC 0%, #DCA47D 100%);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--gold-primary);
+  border: 1px solid var(--gold-primary);
+  font-weight: 600;
+  padding: 0.95rem 2.2rem;
+  border-radius: 2px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.8rem;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-secondary:hover {
+  background: rgba(220, 164, 125, 0.12);
+  color: var(--gold-light);
+  border-color: var(--gold-light);
+  transform: translateY(-3px);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
